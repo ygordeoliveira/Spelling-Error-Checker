@@ -49,9 +49,8 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1 className="text-center mt-3">Spelling Error Checker</h1>
+                <h1>Spelling Error Checker</h1>
                 <textarea 
-                    className="ms-5 mt-3"
                     rows="4"
                     cols="50"
                     placeholder="Send text"
@@ -60,11 +59,11 @@ class App extends Component {
                 ></textarea>
                 <br />
                 <br />
-                <button className="ms-5" onClick={this.handleCorrectText}>Submit</button>
+                <button onClick={this.handleCorrectText}>Submit</button>
                 <br />
                 <br />
-                <h2 className="ms-5">Corrected Text :</h2>
-                <p className="ms-5" dangerouslySetInnerHTML={{ __html: this.state.renderedText }}></p>
+                <h2>Corrected Text :</h2>
+                <p dangerouslySetInnerHTML={{ __html: this.state.renderedText }}></p>
             </div>
         );
     }
