@@ -1,13 +1,310 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+h1 {
+    text-align: center;
+}
+
+textarea {
+    margin-top: 20px;
+    margin-left: 500px;
+    width: 500px;
+    height: 200px;
+}
+
+button {
+    margin-left: 950px;
+    padding: 5px;
+}
+
+h2 {
+    margin-left: 500px;
+}
+
+p {
+    margin-left: 500px;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1330px) {
+    textarea {
+        margin-top: 20px;
+        margin-left: 50px;
+        width: 500px;
+        height: 200px;
+    }
+
+    button {
+        margin-left: 500px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 50px;
+    }
+
+    p {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1200px) {
+    textarea {
+        margin-top: 20px;
+        margin-left: 50px;
+        width: 500px;
+        height: 200px;
+    }
+
+    button {
+        margin-left: 500px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 50px;
+    }
+
+    p {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1100px) {
+    textarea {
+        margin-top: 20px;
+        margin-left: 50px;
+        width: 500px;
+        height: 200px;
+    }
+
+    button {
+        margin-left: 500px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 50px;
+    }
+
+    p {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1000px) {
+    textarea {
+        margin-top: 20px;
+        margin-left: 50px;
+        width: 500px;
+        height: 200px;
+    }
+
+    button {
+        margin-left: 500px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 50px;
+    }
+
+    p {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 900px) {
+    textarea {
+        margin-top: 20px;
+        margin-left: 50px;
+        width: 500px;
+        height: 200px;
+    } 
+
+    button {
+        margin-left: 500px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 50px;
+    }
+
+    p {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 800px) {
+    textarea {
+        margin-top: 20px;
+        margin-left: 50px;
+        width: 500px;
+        height: 200px;
+    } 
+
+    button {
+        margin-left: 500px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 50px;
+    }
+
+    p {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 700px) {
+    textarea {
+        margin-top: 20px;
+        margin-left: 50px;
+        width: 500px;
+        height: 200px;
+    } 
+
+    button {
+        margin-left: 500px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 50px;
+    }
+
+    p {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 600px) {
+    textarea {
+        margin-top: 20px;
+        margin-left: 40px;
+        width: 450px;
+        height: 200px;
+    } 
+
+    button {
+        margin-left: 440px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 40px;
+    }
+
+    p {
+        margin-left: 40px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 500px) {
+    textarea {
+        margin-top: 20px;
+        margin-left: 30px;
+        width: 350px;
+        height: 200px;
+    } 
+
+    button {
+        margin-left: 330px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 30px;
+    }
+
+    p {
+        margin-left: 30px;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 400px) {
+    textarea {
+        margin-top: 20px;
+        margin-left: 10px;
+        width: 260px;
+        height: 100px;
+    } 
+
+    button {
+        margin-left: 220px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 10px;
+    }
+
+    p {
+        margin-left: 10px;
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 300px) {
+    h1 {
+        font-size: 15px;
+    }
+
+    textarea {
+        margin-top: 20px;
+        margin-left: 5px;
+        width: 150px;
+        height: 100px;
+    } 
+
+    button {
+        margin-left: 105px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 5px;
+        font-size: 15px;
+    }
+
+    p {
+        margin-left: 5px;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width: 200px) {
+    h1 {
+        font-size: 15px;
+    }
+
+    textarea {
+        margin-top: 20px;
+        margin-left: 5px;
+        width: 100px;
+        height: 150px;
+    } 
+
+    button {
+        margin-left: 55px;
+        padding: 5px;
+    }
+
+    h2 {
+        margin-left: 5px;
+        font-size: 15px;
+    }
+
+    p {
+        margin-left: 5px;
+    }
 }
