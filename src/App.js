@@ -1,5 +1,4 @@
 import React, { Component } from 'react'; 
-import ReactDOM from 'react-dom'; 
 
 class App extends Component { 
     constructor(props) { 
@@ -9,55 +8,66 @@ class App extends Component {
             renderedText: '' 
         }; 
         this.handleTextareaChange = this.handleTextareaChange.bind(this); 
-        this.handleCorrectText = this.handleCorrectText.bind(this); 
+        this.handleCorrectText = this.handleCorrectText.bind(this);
     } 
 
     handleTextareaChange = (event) => { 
-        this.setState({ textareaValue: event.target.value }); 
+        const newValue = event.target.value;
+        this.setState({ 
+            textareaValue: newValue,
+            renderedText: newValue === '' ? '' : this.state.renderedText 
+        }); 
     }; 
 
     handleCorrectText() { 
-        const url = `https://api.textgears.com/grammar?key=90MJbyJqYhQTowb8&text=${(this.state.textareaValue)}&language=pt-BR`; 
+        const textToCheck = this.state.textareaValue;
 
-        fetch(url) 
-            .then((res) => res.json()) 
-            .then((data) => { 
-                const errors = data["response"]["errors"]; 
-                let rightText = this.state.textareaValue; 
+        fetch('https://api.languagetoolplus.com/v2/check', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            body: `text=${encodeURIComponent(textToCheck)}&language=pt-BR`
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                let correctedText = this.state.textareaValue;
 
-                for (let error of errors) { 
-                    let wrongWord = error["bad"]; 
-                    let rightWord = error["better"][0]; 
-                    rightText = this.state.textareaValue.replace(wrongWord, rightWord); 
-                }   
-                this.setState({ renderedText: rightText }); 
+                if (data.matches) {
+                    data.matches.forEach((match) => {
+                        const wrongPart = match.context.text.substring(match.context.offset, match.context.offset + match.context.length);
+                        correctedText = correctedText.replace(wrongPart, match.replacements[0].value);
+                    });
+                }
+                correctedText = correctedText.replace(/\n/g, '<br />');
+
+                this.setState({ renderedText: correctedText });
             })
-            .catch((error) => console.error(error)); 
-    } 
+            .catch((error) => console.log(error));
+    }
 
-    render() { 
-        return ( 
-            <div> 
-                <h1>Spelling Error Checker</h1> 
+    render() {
+        return (
+            <div>
+                <h1 className="text-center mt-3">Spelling Error Checker</h1>
                 <textarea 
-                    rows="4" 
+                    className="ms-5 mt-3"
+                    rows="4"
                     cols="50"
-                    placeholder="Send text" 
-                    value={this.state.textareaValue} 
-                    onChange={this.handleTextareaChange} 
-                ></textarea> 
-                <br/> 
-                <br/> 
-                <button onClick={this.handleCorrectText}>Submit</button> 
-                <br> 
-                </br> 
-                <h2>Corrected Text :</h2> 
-                <p>{this.state.renderedText}</p> 
-            </div> 
-        ); 
-    } 
-} 
-
-ReactDOM.render(<App />, document.getElementById('root')); 
+                    placeholder="Send text"
+                    value={this.state.textareaValue}
+                    onChange={this.handleTextareaChange}
+                ></textarea>
+                <br />
+                <br />
+                <button className="ms-5" onClick={this.handleCorrectText}>Submit</button>
+                <br />
+                <br />
+                <h2 className="ms-5">Corrected Text :</h2>
+                <p className="ms-5" dangerouslySetInnerHTML={{ __html: this.state.renderedText }}></p>
+            </div>
+        );
+    }
+}
 
 export default App; 
